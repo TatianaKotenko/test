@@ -1,7 +1,7 @@
 import pytest
 from sky import StringUtils
 
-strringUtils = StringUtils()
+string_utils = StringUtils()
 
 
 @pytest.mark.parametrize('str1, result', [
@@ -9,9 +9,9 @@ strringUtils = StringUtils()
     ("my love", "My love"),
     ("плюшка", "Плюшка")
     ])
-def test_stri_pozitive(str1, result):
-    strringUtils = StringUtils()
-    res = strringUtils.capitalize(str1)
+def test_capitalize_pozitive(str1, result):
+    string_utils = StringUtils()
+    res = string_utils.capitalize(str1)
     assert res == result
 
 
@@ -20,9 +20,9 @@ def test_stri_pozitive(str1, result):
     (" ", " "),
     ("", "")
     ])
-def test_stri_negative(str1, result):
-    strringUtils = StringUtils()
-    res = strringUtils.capitalize(str1)
+def test_capitalize_negative(str1, result):
+    string_utils = StringUtils()
+    res = string_utils.capitalize(str1)
     assert res == result
 
 
@@ -31,9 +31,9 @@ def test_stri_negative(str1, result):
     ("  cool", "cool"),
     (" 1cool", "1cool")
     ])
-def test_striT_pozitive(str1, result):
-    strringUtils = StringUtils()
-    res = strringUtils.trim(str1)
+def test_trim_pozitive(str1, result):
+    string_utils = StringUtils()
+    res = string_utils.trim(str1)
     assert res == result
 
 
@@ -42,20 +42,21 @@ def test_striT_pozitive(str1, result):
     ("", ""),
     (" ", "")
     ])
-def test_striT_negative(str1, result):
-    strringUtils = StringUtils()
-    res = strringUtils.trim(str1)
+def test_trim_negative(str1, result):
+    string_utils = StringUtils()
+    res = string_utils.trim(str1)
     assert res == result
 
 
 @pytest.mark.parametrize('str1, str2, result', [
     ("Skip", "p", True),
     ("Love is", "i", True),
-    ("Skypro", "ky", True)
+    ("Skypro", "ky", True),
+    ("2345", "4", True)
     ])
-def test_strib_positive(str1, str2, result):
-    strringUtils = StringUtils()
-    res = strringUtils.contains(str1, str2)
+def test_contains_positive(str1, str2, result):
+    string_utils = StringUtils()
+    res = string_utils.contains(str1, str2)
     assert res == result
 
 
@@ -64,20 +65,20 @@ def test_strib_positive(str1, str2, result):
     ("  ", "i", False),
     ("", "d", False)
     ])
-def test_strib_negative(str1, str2, result):
-    strringUtils = StringUtils()
-    res = strringUtils.contains(str1, str2)
+def test_contains_negative(str1, str2, result):
+    string_utils = StringUtils()
+    res = string_utils.contains(str1, str2)
     assert res == result
 
 
 @pytest.mark.parametrize('str1, str2, result', [
-    ("Skip", "p", "Ski"),
+    ("Skip pass", "p", "Ski ass"),
     ("Love is", "", "Love is"),
     ("Skypro", "ky", "Spro")
     ])
-def test_strds_positive(str1, str2, result):
-    strringUtils = StringUtils()
-    res = strringUtils.delete_symbol(str1, str2)
+def test_delete_symbol_positive(str1, str2, result):
+    string_utils = StringUtils()
+    res = string_utils.delete_symbol(str1, str2)
     assert res == result
 
 
@@ -86,7 +87,7 @@ def test_strds_positive(str1, str2, result):
     ("  ", "i", "  "),
     ("", "", "")
     ])
-def test_strids_negative(str1, str2, result):
-    strringUtils = StringUtils()
-    res = strringUtils.delete_symbol(str1, str2)
+def test_delete_symbol_negative(str1, str2, result):
+    string_utils = StringUtils()
+    res = string_utils.delete_symbol(str1, str2)
     assert res == result
