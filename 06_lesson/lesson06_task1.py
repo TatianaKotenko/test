@@ -13,6 +13,6 @@ driver.get("http://uitestingplayground.com/ajax")
 driver.find_element(By.CSS_SELECTOR, "#ajaxButton").click()
 content = driver.find_element(By.CSS_SELECTOR, "#content")
 txt = content.find_element(By.CSS_SELECTOR, "p.bg-success").text
-print (txt)
+print(txt)
 
 driver.quit()
