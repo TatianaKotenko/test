@@ -1,12 +1,13 @@
 from time import sleep
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service
+
+
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-
-path = r'C:/Users/tatti/Desktop/Driver/msedgedriver.exe'
-service = Service(executable_path=path)
-driver = webdriver.Edge(service=service)
+driver = webdriver.Chrome(service=ChromeService(
+    ChromeDriverManager().install()))
 
 driver.get(" http://uitestingplayground.com/dynamicid")
 sleep(3)
