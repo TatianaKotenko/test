@@ -29,9 +29,6 @@ search_box.send_keys("test@skypro.com")
 search_box = driver.find_element(By.CSS_SELECTOR, '[name="phone"]')
 search_box.send_keys("+7985899998787")
 
-search_box = driver.find_element(By.CSS_SELECTOR, '[name="phone"]')
-search_box.send_keys("+7985899998787")
-
 search_box = driver.find_element(By.CSS_SELECTOR, '[name="zip-code"]')
 search_box.send_keys("")
 
@@ -51,20 +48,17 @@ search_box.send_keys("SkyPro")
 submit = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-outline-primary.mt-3')
 submit.send_keys(Keys.END)
 
-waiter = WebDriverWait(driver, 30).until(
+WebDriverWait(driver, 30).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.btn.btn-outline-primary.mt-3')))
 submit.click()
 
-WebDriverWait(driver, 30).until(
-    EC.visibility_of_element_located((By.CSS_SELECTOR, "alert.py-2.alert-danger")))
-
 zip_code = driver.find_element(By.ID, "zip-code").get_attribute("class")
-assert zip_code == "alert.py-2.alert-danger"
+assert "alert-danger" in zip_code
 
-poles = [search_box]
+poles = ["first-name", "last-name", "e-mail", "phone", "city", "country", "job-position", "company"]
+
 for pole in poles:
-    pole_class =  driver.find_element(By.CSS_SELECTOR, pole).get_attribute("class")
-
-    assert pole_class == "alert.py-2.alert-success"
+    pole_class = driver.find_element(By.ID, pole).get_attribute("class")
+    assert "alert-success" in pole_class
 
 driver.quit()
