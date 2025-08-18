@@ -1,5 +1,4 @@
 import requests
-import pytest
 
 
 url = "https://ru.yougile.com"
@@ -18,10 +17,17 @@ payload = {
         "625da618-ccd2-43f2-9900-3c39368a0aaa": "worker"
     }
 }
+
+
 def test_change_pozitive():
-    response = requests.request("PUT", url + f'/api-v2/projects/{id}', json=payload, headers=headers)
+    response = requests.request(
+        "PUT", url + f'/api-v2/projects/{id}', json=payload, headers=headers
+    )
     assert response.status_code == 200
 
+
 def test_change_negative():
-    response = requests.request("PUT", url + f'/api-v2/projects/{id}', json=headers, headers=headers)
+    response = requests.request(
+        "PUT", url + f'/api-v2/projects/{id}', json=headers, headers=headers
+    )
     assert response.status_code == 400

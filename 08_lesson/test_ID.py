@@ -7,13 +7,19 @@ id = "c5d90e0f-1956-45ff-9228-810905ec156f"
 
 headers = {
     "Content-Type": "application/json",
-    "Authorization": f"Bearer {token}" 
+    "Authorization": f"Bearer {token}"
     }
 
+
 def test_pozitive_id_company():
-    response = requests.request("GET", url + f'/api-v2/projects/{id}', headers=headers)
+    response = requests.request(
+        "GET", url + f'/api-v2/projects/{id}', headers=headers
+        )
     assert response.status_code == 200
 
+
 def test_negative_id_company():
-    response = requests.request("GET", url + f'/api-v2/projects/{token}', headers=headers)
+    response = requests.request(
+        "GET", url + f'/api-v2/projects/{token}', headers=headers
+    )
     assert response.status_code == 404

@@ -1,5 +1,5 @@
 import requests
-import pytest
+
 
 url = "https://ru.yougile.com"
 token = "ry5j1+HvUJiq6NpBA-ILi8vfJ5YBEZr9AzWaFrzAmq7jYQk7U4V8zCGU6dez9vne"
@@ -13,10 +13,17 @@ headers = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {token}"
 }
+
+
 def test_progect_pozitive():
-    response = requests.request("POST", url + '/api-v2/projects', json=payload, headers=headers)
+    response = requests.request(
+        "POST", url + '/api-v2/projects', json=payload, headers=headers
+    )
     assert response.status_code == 201
 
+
 def test_progect_negative():
-    response = requests.request("POST", url + '/api-v2/projects', json=headers, headers=headers)
+    response = requests.request(
+        "POST", url + '/api-v2/projects', json=headers, headers=headers
+    )
     assert response.status_code == 400
