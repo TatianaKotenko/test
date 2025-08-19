@@ -1,5 +1,5 @@
 import requests
-
+#ИЗМЕНЕНИЕ В ПРОЕКТЕ
 
 url = "https://ru.yougile.com"
 token = "ry5j1+HvUJiq6NpBA-ILi8vfJ5YBEZr9AzWaFrzAmq7jYQk7U4V8zCGU6dez9vne"
@@ -28,6 +28,6 @@ def test_change_pozitive():
 
 def test_change_negative():
     response = requests.request(
-        "PUT", url + f'/api-v2/projects/{id}', json=headers, headers=headers
+        "PUT", url + f'/api-v2/projects/{id}', json=payload, headers=None
     )
-    assert response.status_code == 400
+    assert response.status_code == 401

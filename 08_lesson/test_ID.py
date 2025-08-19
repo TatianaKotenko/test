@@ -1,5 +1,5 @@
 import requests
-
+#ПОЛУЧИТЬ ИНФОРМАЦИЮ О КОМПАНИИ ПО ID КОМПАНИИ
 
 url = "https://ru.yougile.com"
 token = "ry5j1+HvUJiq6NpBA-ILi8vfJ5YBEZr9AzWaFrzAmq7jYQk7U4V8zCGU6dez9vne"
@@ -20,6 +20,6 @@ def test_pozitive_id_company():
 
 def test_negative_id_company():
     response = requests.request(
-        "GET", url + f'/api-v2/projects/{token}', headers=headers
+        "GET", url + f'/api-v2/projects/{id}'
     )
-    assert response.status_code == 404
+    assert response.status_code == 401
