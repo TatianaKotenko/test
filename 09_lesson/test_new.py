@@ -15,3 +15,4 @@ def test_db_connection():
 	names = inspector.get_table_names()
 	assert names[1] == 'plases'
 
+

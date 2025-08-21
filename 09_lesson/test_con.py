@@ -25,3 +25,4 @@ def test_db_connection():
     names = inspector.get_table_names()
     # просто проверяем, что таблица есть в списке
     assert 'places' in names
+    
